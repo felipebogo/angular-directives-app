@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-title>
+    Directives
+  </mat-card-title>
+  <mat-card-content>
+    <section>
+      <mat-form-field>
+        <mat-select placeholder="Select a directive to see the example" [(ngModel)]="selectedDirective" name="selectedDirective">
+          <mat-option *ngFor="let directive of directives" [value]="directive">{{directive}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </section>
+
+    <br><br>
+
+    <section [ngSwitch]="selectedDirective">
+      <app-ng-style *ngSwitchCase="'ng-style'"></app-ng-style>
+
+      <app-ng-class *ngSwitchCase="'ng-class'"> </app-ng-class>
+
+      <app-ng-if *ngSwitchCase="'ng-if'"></app-ng-if>
+
+      <app-ng-for *ngSwitchCase="'ng-for'"></app-ng-for>
+
+      <app-ng-for-form *ngSwitchCase="'ng-for-form'"></app-ng-for-form>
+
+      <app-ng-switch *ngSwitchCase="'ng-switch'"></app-ng-switch>
+
+      <app-ng-template *ngSwitchCase="'ng-template'"></app-ng-template>
+
+      <app-ng-container *ngSwitchCase="'ng-container'"></app-ng-container>
+
+      <app-ng-content *ngSwitchCase="'ng-content'">
+        <p>My name is <strong>Homer Simpson</strong>, nice to meet you.</p>
+        <p>One more beer, please!</p>
+      </app-ng-content>
+    </section>
+  </mat-card-content>
+</mat-card>
